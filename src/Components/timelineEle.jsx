@@ -1,0 +1,43 @@
+export const timelineElement = [
+    {
+        id:1,
+        title: "บริษัทไทยเซ็นทรัลเคมี จำกัด มหาชน",
+        location: "อาคารสามย่าน มิตรทาวน์",
+        description: "รับผิดชอบเก็บ requirements และเเก้ไข Php Code ที่ใช้งานภายในบริษัท  ",
+        buttonText: "เยี่ยมชมเว็บไซต์",
+        dataLink: "https://www.tcccthai.com/th",
+        date: "2565",
+        icon: "MdTimeline",
+    },
+    {
+        id:2,
+        title: "มหาวิทยาลัยศิลปากร",
+        location: "วิทยาเขต เพชรบุรี",
+        description: "สาขาเทคโนโลยีสารสนเทศธุรกิจ",
+        buttonText: "เยี่ยมชมเว็บไซต์",
+        dataLink: "https://www.su.ac.th/th/index.php",
+        date: "2561-2564",
+        icon: "MdTimeline",
+    },
+    {
+        id:3,
+        title: "บริษัท มิราเคิล ไลฟ์โค้ช จำกัด",
+        location: "ลาดพร้าว 101",
+        description: "ดูแลเว็บไซต์ ออกแบบและดีไซน์ Wordpress",
+        buttonText: "-",
+        dataLink: "-",
+        date: "2564",
+        icon: "MdTimeline",
+    },
+    {
+        id:4,
+        title: "โรงเรียนเซน์หลุยส์",
+        location: "จังหวัด ฉะเชิงเทรา",
+        description: "สาขา วิทยาศาสตร์และคณิตศาสตร์",
+        buttonText: "เยี่ยมชมเว็บไซต์",
+        dataLink: "https://www.sl.ac.th/",
+        date: "2557-2560",
+        icon: "MdTimeline",
+    },
+]
+
