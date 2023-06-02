@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Resume from "../assets/Resume.pdf"
+import Resume from "../assets/Resume_STP.pdf"
 
 
 import {MdSmartphone,MdEmail,MdFacebook} from "react-icons/md"

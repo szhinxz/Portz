@@ -1,15 +1,36 @@
 import { useEffect,useRef,useState} from "react";
-import { FiGrid,FiUser,FiX,FiLayers } from "react-icons/fi"; 
-import { MdTimeline,MdFace,MdPhp,MdArrowLeft,MdArrowRight } from "react-icons/md"; 
+import { FiGrid,FiUser,FiX,FiLayers,FiCpu } from "react-icons/fi"; 
+import { MdTimeline,MdFace,MdPhp,MdArrowLeft,MdArrowRight,MdOutlineWorkOutline,MdSmartphone,MdEmail,MdFacebook,MdOutlineContacts } from "react-icons/md"; 
 import {timelineElement} from "../Components/timelineEle";
 import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline-component";
 import { BsPersonWorkspace } from "react-icons/bs";
 import {Image01} from "../image"
 
-import Resume from "../assets/Resume.pdf"
-
 import "react-vertical-timeline-component/style.min.css";
 import {motion} from "framer-motion"
+
+// About page //
+import Resume from "../assets/Resume_STP.pdf"
+
+
+import {VscGithub} from "react-icons/vsc"
+import {BsFileEarmarkPdfFill} from "react-icons/bs"
+
+// work page //
+import {image} from "../image";
+import { ChevronBackOutline } from 'react-ionicons'
+import { ChevronForwardOutline } from 'react-ionicons'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper';
+import Movie from './movie';
+import Filter from './filter';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function Home(){
     
@@ -99,6 +120,22 @@ export default function Home(){
         track.style.transform = `translate(${nextPercentage}%, -50%)`
     }
 
+    const buttons = document.querySelectorAll('.banner a')
+        buttons.forEach(btn => {
+            btn.addEventListener('click',function(e) {
+                let x = e.clientX - e.target.offsetLeft
+                let y = e.clientY - e.target.offsetTop
+
+                let rippples = document.createElement('.banner span')
+                rippples.style.left = x + 'px'
+                rippples.style.top = y + 'px'
+                this.appendChild(rippples)
+
+                setTimeout(() => {
+                    rippples.remove()
+                },1000)
+            })
+        }) 
     return (
         <>
         {/* <button className="go-top-btn">
@@ -126,8 +163,20 @@ export default function Home(){
             </li>
             <li className="list">
             <a href="#exper">
-                <span className="icon"><FiUser /></span>
+                <span className="icon"><FiCpu /></span>
                 <span className="text">Experience</span>
+            </a>
+            </li>
+            <li className="list">
+            <a href="#work">
+                <span className="icon"><MdOutlineWorkOutline /></span>
+                <span className="text">Work</span>
+            </a>
+            </li>
+            <li className="list">
+            <a href="#contact">
+                <span className="icon"><MdOutlineContacts /></span>
+                <span className="text">Contact</span>
             </a>
             </li>
             <div className="indicator">
@@ -238,19 +287,102 @@ export default function Home(){
         <section className="hidden" id="exper"> 
             <h2>EXPERIENCE</h2>
             <div className="con-per">
-                <div className="box">
-                    <div className="box-text">
-                        <h1><img src="#" alt="" />-</h1>
-                        <h2>System Developer</h2>
-                        <p>พัฒนาเว็บใช้ภายในเว็บไซต์ ในรูปแบบเว็บไซต์การส่งฟอร์มอนุมัติและติดตามผล ระบบแจ้งเตือนผ่านอีเมลล์</p>
+                <div className="carousel-l">
+                    <div className="imgs">
+                    <Swiper
+                        effect={'coverflow'}
+                        grabCursor={true}
+                        centeredSlides={true}
+                        loop={true}
+                        slidesPerView={'auto'}
+                        coverflowEffect={{
+                            rotate: 0,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 2.5,
+                        }
+                        }
+                        pagination={{ el: '.swiper-pagination', clickable: true }}
+                        navigation={{
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                            clickable: true,
+                        }}
+                        modules={[EffectCoverflow, Pagination, Navigation]}
+                        className="swiper_container"
+                        >
+                            {image.map((e,index) =>{
+                            return(
+                                <SwiperSlide key={index}><img src={e.path} width={500} height={500}/></SwiperSlide>
+                            )
+                        }
+                            )}
+                            <div className="slider-conttroler">
+                                <div className="swiper-button-prev silder-arrow">
+                                
+                                </div>
+                                <div className="swiper-button-next silder-arrow">
+                                
+                                </div>
+                                <div className="swiper-pagination"></div>
+                            </div>
+                        </Swiper>
                     </div>
                 </div>
-                <div className="bar"></div>
-                <div className="box">
-                    <div className="box-text">
-                        <h1><img src="#" alt="" />-</h1>
-                        <h2>Coelum</h2>
-                        <p>เว็บไซต์จัดงานศพที่มีวัดร่วมเป็นพาร์ทเนอร์ ด้วยรูปแบบการจองวัดและศาลาแบบออนไลน์</p>
+                <div className="card-r">
+                    <div className="imglink"> Anime 01</div>
+                </div>
+            </div>
+        </section>
+
+        <section className="hidden" id="work"> 
+            <h2>WORK</h2>
+            <section className="card">
+                <motion.div  className="card_img">
+                        <Movie/>
+                </motion.div>
+            </section>
+        </section>
+
+        <section className="hidden" id="contact"> 
+            <div className="contact-card">
+                <div className="box-card">
+                    <div className="box-card-text">
+                        <div className="wrapper">
+                            <div className="icon facebook">
+                                <div className="tooltip">
+                                    Facebook
+                                </div>
+                                <a href="https://www.facebook.com/nashii.sashioka/" target="_blank"><span><MdFacebook/></span></a>
+                            </div>
+                            <div className="icon smartphone">
+                                <div className="tooltip">
+                                    Tel:0618468205
+                                </div>
+                                <a href="tel:061-846-8205"><span><MdSmartphone/></span></a>
+                            </div>
+                            <div className="icon email">
+                                <div className="tooltip">
+                                    Kennamthieng_S@su.ac.th
+                                </div>
+                                <a href="mailto:Kennamthieng_S@su.ac.th"><span><MdEmail/></span></a>
+                            </div>
+                            <div className="icon github">
+                                <div className="tooltip">
+                                    Github
+                                </div>
+                                <a href="https://github.com/szhinxz" target="_blank"><span><VscGithub/></span></a>
+                            </div>
+                        </div>
+                        <div className="resume-card">
+                            <div className="icon resume">
+                                <div className="tooltip-2">
+                                    Resume
+                                </div>
+                                <a href={Resume} download="Resume"><span><BsFileEarmarkPdfFill /></span></a>
+                            </div>
+                        </div>
+                        <br />
                     </div>
                 </div>
             </div>

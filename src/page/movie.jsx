@@ -1,11 +1,17 @@
 import React,{ useState,Form,InputGroup } from "react";
 import {motion} from "framer-motion";
 import {work} from "../mywork"
+import { useEffect } from "react";
+import { FiX} from "react-icons/fi"; 
+import {BsSearch} from "react-icons/bs"
 
 function Movie() {
     const [filtered,setFiltered] = useState([]);
     const [activeGenre,setActiveGenre] = useState(0);
     const [search, setSearch] = useState('')
+    const [click, setClick ] = useState(false)
+    const handleClick = () => setClick (!click)
+
     // useEffect(() => {
     //     {work.map((e,i) => {
     //     if(activeGenre === 0) {
@@ -29,32 +35,43 @@ function Movie() {
         <>
         {/* <img src={"http://image.tmdb.org/t/p/w500" + movie.result} alt="" /> */}
         <div className="seacrhs">
-                <div className="filter-container">
-                    <button >All</button>
-                    <button >Project</button>
-                    <button >Design</button>
-                </div>
-                <div className="inputBox">
-                    <input type="text" onChange={(e) => setSearch(e.target.value)}/>
-                    <span>Search...</span>
-                </div>
+                {/* <div className="filter-container">
+                    <button onClick={() => setActiveGenre(0)} >All</button>
+                    <button onClick={() => setActiveGenre("project")}>Project</button>
+                    <button onClick={() => setActiveGenre("design")}>Design</button>
+                </div> */}
+                <ul className={click ? "active" : ""}>
+                    <div className="inputBox">
+                        <input type="text" onChange={(e) => setSearch(e.target.value)}/>
+                        <span>Search...</span>
+                    </div>
+                </ul>
+                <div className="inputBox-mobile" onClick={handleClick}>
+                {click ? (
+                    <FiX />
+                ): (
+                    <BsSearch />
+                )}
+            </div>
         </div>
 
         <div className="box_movie">
-        {work.map((e,i)=> {
+        {work.filter((e) =>{
+            return search.toLowerCase() === '' ? e :e.title.toLowerCase().includes(search) || search.toLowerCase() === '' ? e :e.type.toLowerCase().includes(search) 
+        }).map((e,i)=> {
             // console.log(e)
             return(
-                <>
-                <motion.div layout animate={{opacity: 1}} initial={{opacity: 0}} exit={{ opacity: 0}} className="card_movie">
-                    <div className="img_movie">
-                    <img key={i} src={e.path} alt="" />
+                <div>
+                <motion.div layout animate={{opacity: 1}} initial={{opacity: 0}} exit={{ opacity: 0}} className="card_movie" >
+                    <div className="img_movie" >
+                    <img  src={e.path} alt="" />
                     </div>
                     <div className="text_title">
                     {e.title}<br/>
                     {e.description}
                     </div>
                 </motion.div>
-                </>
+                </div>
             )
         })}
         </div>

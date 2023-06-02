@@ -119,13 +119,16 @@ header {
     opacity: 1;
 }
 
+.banner.sticky a {
+    color: #000;
+}
+
 .banner ul {
-    width: 450px;
+    width: 500px;
     display: flex;
-    background-color: #fff;
     border-radius: 20px;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .banner ul li {
@@ -133,9 +136,36 @@ header {
     display: flex;
 }
 
-.banner a:hover,
-.banner a:active {
-    color: #df8b0b;
+.banner a {
+    position: relative;
+    left: -90px;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .4s;
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+}
+
+.banner a:after {
+    content: '';
+    width: 0;
+    height: 100%;
+    position: absolute;
+    background: var(--second);
+    left: 0;
+    transition: .4s;
+    z-index: -1;
+}
+
+.banner a :hover {
+    color: #fff;
+}
+
+.banner a:hover::after {
+    width: 100%;
 }
 
 .card {
@@ -309,7 +339,7 @@ p {
     display: grid;
     place-items: center;
     align-content: center;
-    background-image: url("./assets/p01.jpg");
+    background-image: url("./images/p01.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -420,29 +450,50 @@ p {
     opacity: 1;
 }
 
+
+/* experience */
+
 .con-per {
-    display: grid;
+    display: flex;
     width: 100%;
+    height: 100%;
     gap: 15px;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
+}
+
+
+/* left */
+
+.carousel-l {
+    width: 650px;
+    height: 100%;
     justify-content: center;
-    padding-top: 20px;
 }
 
-.con-per .box {
-    display: inline;
-    width: 500px;
-    box-shadow: 0 5px 10px rgb(90, 90, 90);
-    border-radius: 5px;
-    background-color: var(--second);
-    color: #fff;
+.imgs {
+    height: 500px;
+    justify-content: center;
 }
 
-.con-per .box p {
-    font-size: 22px;
-    color: #fff;
+
+/* right */
+
+.card-r {
+    width: 700px;
+    height: 700px;
+    justify-content: center;
 }
+
+.imglink {
+    position: relative;
+    top: 250px;
+    justify-content: center;
+}
+
+
+/* end */
 
 .bar {
     position: relative;
@@ -450,9 +501,9 @@ p {
 }
 
 .inputBox {
-    position: relative;
-    top: 20px;
-    left: 800px;
+    position: absolute;
+    top: 50px;
+    left: 1450px;
     width: 250px;
 }
 
@@ -473,7 +524,7 @@ p {
     padding: 10px;
     pointer-events: none;
     font-size: 1em;
-    color: #2e2e2e;
+    color: #0e0d0d;
     text-transform: uppercase;
     transition: 0.5s;
 }
@@ -505,7 +556,7 @@ p {
     width: 100%;
     height: 250px;
     z-index: 0;
-    background: rgb(255, 255, 255);
+    background: #000;
 }
 
 .contact-card {
@@ -518,11 +569,10 @@ p {
 .box-card {
     width: 800px;
     height: 350px;
-    background-color: #000;
+    background-color: none;
     position: relative;
     top: 250px;
     border-radius: 20px;
-    box-shadow: 0 5px 10px rgb(90, 90, 90);
     flex-wrap: wrap;
     justify-content: center;
     display: grid;
@@ -779,6 +829,11 @@ p {
     visibility: hidden;
 }
 
+.inputBox-mobile {
+    display: none;
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 768px) {
     .mobile-menu {
         display: block;
@@ -819,27 +874,6 @@ p {
     .banner {
         visibility: hidden;
     }
-    .con-per {
-        display: grid;
-        width: 100%;
-        gap: 15px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-top: 20px;
-    }
-    .con-per .box {
-        display: block;
-        width: 250px;
-        box-shadow: 0 5px 10px rgb(90, 90, 90);
-        border-radius: 5px;
-        background-color: var(--second);
-        color: #fff;
-    }
-    .con-per .box p {
-        font-size: 18px;
-        color: #fff;
-    }
     .logo-banner {
         flex-wrap: wrap;
         display: flex;
@@ -851,7 +885,7 @@ p {
         display: grid;
         place-items: center;
         align-content: center;
-        background-image: url("./assets/p01.jpg");
+        background-image: url("./images/p01.jpg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -881,24 +915,38 @@ p {
         visibility: hidden;
     }
     .container-card {
-        width: 100%;
+        width: 350px;
     }
     .contact-card {
         justify-content: center;
-        width: 100%;
+        width: 350px;
     }
     .box-card {
         width: 100%;
         height: 350px;
-        background-color: #000;
-        border-radius: 20px;
-        box-shadow: 0 5px 10px rgb(90, 90, 90);
         flex-wrap: wrap;
         display: block;
     }
     .box-card-text {
         justify-content: center;
         width: 100%;
+    }
+    .wrapper {
+        width: 350px;
+    }
+    .resume-card {
+        width: 350px;
+    }
+    .wrapper .icon {
+        margin: 0 13px;
+        top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
     }
     .contact-card-text {
         left: 50px;
@@ -970,6 +1018,46 @@ p {
     .carousel {
         cursor: grab;
         overflow: hidden;
+    }
+    .inputBox {
+        position: absolute;
+        top: 50px;
+        left: 120px;
+        width: 250px;
+    }
+    .con-per {
+        display: flex;
+        width: 390px;
+        height: 100%;
+    }
+    .carousel-l {
+        width: 90%;
+        height: 150px;
+    }
+    .card-r {
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+    }
+    .seacrhs ul {
+        visibility: hidden;
+        width: 0;
+        right: -100%;
+    }
+    .seacrhs ul.active {
+        visibility: visible;
+        transition: 0.5s ease;
+        right: 0;
+    }
+    .inputBox-mobile {
+        display: grid;
+        visibility: visible;
+        color: #fff;
+        position: relative;
+        top: -45px;
+        left: 300px;
+        font-size: 22px;
+        transition: 0.5s ease;
     }
     /* .banner {
         width: 100%;
@@ -1053,15 +1141,15 @@ p {
 
 @media (max-width: 500px) {
     .swiper_container {
-        height: 47rem;
+        height: 20rem;
     }
     .swiper-slide {
         width: 28rem !important;
         height: 36rem !important;
     }
     .swiper-slide img {
-        width: 28rem !important;
-        height: 36rem !important;
+        width: 18rem !important;
+        height: 20rem !important;
     }
 }
 
