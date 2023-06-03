@@ -21,7 +21,7 @@ body {
 
 section {
     display: grid;
-    min-height: 100vh;
+    min-height: 90vh;
     place-items: center;
     align-content: center;
     flex-wrap: wrap;
@@ -198,9 +198,10 @@ header {
 }
 
 .img_movie img {
-    width: 350px;
-    height: 350px;
+    width: 500px;
+    height: 500px;
     cursor: pointer;
+    object-fit: contain;
 }
 
 .text_title {
@@ -208,7 +209,7 @@ header {
 }
 
 .img_movie:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
     z-index: 2;
 }
 
@@ -461,6 +462,7 @@ p {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    background: #080808;
 }
 
 
@@ -505,6 +507,7 @@ p {
     top: 50px;
     left: 1450px;
     width: 250px;
+    flex-wrap: wrap;
 }
 
 .inputBox input {
@@ -834,6 +837,86 @@ p {
     visibility: hidden;
 }
 
+.introstp {
+    color: var(--second);
+}
+
+.slider-navigation {
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+    right: 1250px;
+    top: 150px;
+}
+
+.slider-navigation .nav-btn {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+}
+
+.slider-navigation .nav-btn.active {
+    background: var(--second);
+}
+
+.slider-navigation .nav-btn:not(:last-child) {
+    margin-right: 20px;
+}
+
+.slider-navigation .nav-btn:hover {
+    transform: scale(1.2);
+}
+
+.imgswiper {
+    display: flex;
+    position: absolute;
+    top: 150px;
+    left: 150px;
+}
+
+.imgs {
+    display: flex;
+    width: 100%;
+    justify-content: first baseline;
+}
+
+.imgs img {
+    width: 800px;
+    height: 500px;
+    display: hidden;
+    visibility: hidden;
+}
+
+img.active {
+    display: flex;
+    visibility: visible;
+}
+
+.imglink {
+    display: hidden;
+    visibility: hidden;
+}
+
+.imglink.active {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    margin-left: 250px;
+}
+
+.imgss-mo {
+    display: hidden;
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 768px) {
     .mobile-menu {
         display: block;
@@ -1028,7 +1111,7 @@ p {
     .con-per {
         display: flex;
         width: 390px;
-        height: 100%;
+        height: 300px;
     }
     .carousel-l {
         width: 90%;
@@ -1041,7 +1124,6 @@ p {
     }
     .seacrhs ul {
         visibility: hidden;
-        width: 0;
         right: -100%;
     }
     .seacrhs ul.active {
@@ -1053,11 +1135,57 @@ p {
         display: grid;
         visibility: visible;
         color: #fff;
-        position: relative;
-        top: -45px;
-        left: 300px;
+        position: absolute;
+        top: 60px;
+        left: 350px;
         font-size: 22px;
         transition: 0.5s ease;
+    }
+    .card {
+        width: 390px;
+    }
+    .imgs img {
+        display: hidden;
+        visibility: hidden;
+    }
+    .imglink {
+        display: hidden;
+    }
+    .imglink.active {
+        display: hidden;
+        visibility: hidden;
+    }
+    .slider-navigation {
+        display: hidden;
+        visibility: hidden;
+    }
+    .img_movie img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        object-fit: contain;
+    }
+    .img_movie {
+        width: 350px;
+    }
+    .img_movie:hover {
+        transform: scale(1);
+        z-index: 2;
+    }
+    .imgss-mo {
+        visibility: visible;
+        display: block;
+        position: absolute;
+        margin-top: 20px;
+    }
+    .imglinks {
+        background: #444;
+    }
+    .imglinks:nth-child(2) {
+        background: #555;
+    }
+    .imglinks:nth-child(3) {
+        background: #666;
     }
     /* .banner {
         width: 100%;

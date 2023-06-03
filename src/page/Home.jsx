@@ -5,7 +5,7 @@ import {timelineElement} from "../Components/timelineEle";
 import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline-component";
 import { BsPersonWorkspace } from "react-icons/bs";
 import {Image01} from "../image"
-
+import {slc} from "../mywork"
 import "react-vertical-timeline-component/style.min.css";
 import {motion} from "framer-motion"
 
@@ -49,6 +49,34 @@ export default function Home(){
         
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => obsever.observe(el));
+
+        // exper slider //
+    const btns =document.querySelectorAll(".nav-btn")
+    const slides =document.querySelectorAll(".z")
+    const contents =document.querySelectorAll(".imglink")
+
+    var sliderNav = function(manual){
+        btns.forEach((btn) => {
+            btn.classList.remove("active")
+        })
+
+        slides.forEach((slide) => {
+            slide.classList.remove("active")
+        })
+        contents.forEach((content) => {
+            content.classList.remove("active")
+        })
+
+        btns[manual].classList.add("active")
+        slides[manual].classList.add("active")
+        contents[manual].classList.add("active")
+    }
+
+    btns.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+            sliderNav(i)
+        })
+    })
     },[])
 
     let sections = document.querySelectorAll('section');
@@ -136,6 +164,7 @@ export default function Home(){
                 },1000)
             })
         }) 
+
     return (
         <>
         {/* <button className="go-top-btn">
@@ -203,8 +232,8 @@ export default function Home(){
                     </span>
                 </p>
             </div>
-            <h2>Introduce</h2>
-            <p>My name is Sathaphon Khennamthieng</p>
+            <h2>My name is</h2><h2 className="introstp">Sathaphon Khennamthieng</h2>
+            <h3></h3>
         </section>
 
         <section className="hidden" id="time"> 
@@ -289,59 +318,81 @@ export default function Home(){
             <div className="con-per">
                 <div className="carousel-l">
                     <div className="imgs">
-                    <Swiper
-                        effect={'coverflow'}
-                        grabCursor={true}
-                        centeredSlides={true}
-                        loop={true}
-                        slidesPerView={'auto'}
-                        coverflowEffect={{
-                            rotate: 0,
-                            stretch: 0,
-                            depth: 100,
-                            modifier: 2.5,
-                        }
-                        }
-                        pagination={{ el: '.swiper-pagination', clickable: true }}
-                        navigation={{
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                            clickable: true,
-                        }}
-                        modules={[EffectCoverflow, Pagination, Navigation]}
-                        className="swiper_container"
-                        >
                             {image.map((e,index) =>{
                             return(
-                                <SwiperSlide key={index}><img src={e.path} width={500} height={500}/></SwiperSlide>
+                                <div className="imgswiper"><img src={e.path} width={500} height={500} className="z active" key={index}/></div>
                             )
                         }
                             )}
-                            <div className="slider-conttroler">
-                                <div className="swiper-button-prev silder-arrow">
-                                
-                                </div>
-                                <div className="swiper-button-next silder-arrow">
-                                
-                                </div>
-                                <div className="swiper-pagination"></div>
-                            </div>
-                        </Swiper>
                     </div>
                 </div>
                 <div className="card-r">
-                    <div className="imglink"> Anime 01</div>
+                            <div className="imglink active" >
+                                <h2>
+                                Coelum
+                                </h2>
+                                <h3>
+                                เว็บไซต์จัดงานศพ สามารถจองศาลาและรับจัดงานศพ พร้อมทั้งมีวัดเป็นพาร์ทเนอร์
+                                </h3>
+                            </div>
+                            <div className="imglink" >
+                                <h2>
+                                System Project **รูปตัวอย่าง**
+                                </h2>
+                                <h3>
+                                เว็บไซต์ภายในบริษัท ส่งแบบฟอร์มและอนุมัติ ที่ติดตามและแจ้งเตือนผ่านทางอีเมลล์
+                                </h3>
+                            </div>
+                            <div className="imglink" >
+                                <h2>
+                                Mobile App
+                                </h2>
+                                <h3>
+                                โปรเจคเริ่มต้นในชั้นเรียน โดยระบบ Andriod
+                                </h3>
+                            </div>
+                </div>
+                <div className="slider-navigation">
+                    <div className="nav-btn active"></div>
+                    <div className="nav-btn"></div>
+                    <div className="nav-btn"></div>
+                </div>
+                <div className="imgss-mo">
+                    <div className="imglinks" >
+                                <h2>
+                                Coelum
+                                </h2>
+                                <h3>
+                                เว็บไซต์จัดงานศพ สามารถจองศาลาและรับจัดงานศพ พร้อมทั้งมีวัดเป็นพาร์ทเนอร์
+                                </h3>
+                            </div>
+                            <div className="imglinks" >
+                                <h2>
+                                System Project **รูปตัวอย่าง**
+                                </h2>
+                                <h3>
+                                เว็บไซต์ภายในบริษัท ส่งแบบฟอร์มและอนุมัติ ที่ติดตามและแจ้งเตือนผ่านทางอีเมลล์
+                                </h3>
+                            </div>
+                            <div className="imglinks" >
+                                <h2>
+                                Mobile App
+                                </h2>
+                                <h3>
+                                โปรเจคเริ่มต้นในชั้นเรียน โดยระบบ Andriod
+                                </h3>
+                            </div>
                 </div>
             </div>
         </section>
 
         <section className="hidden" id="work"> 
             <h2>WORK</h2>
-            <section className="card">
+            <div className="card">
                 <motion.div  className="card_img">
                         <Movie/>
                 </motion.div>
-            </section>
+            </div>
         </section>
 
         <section className="hidden" id="contact"> 

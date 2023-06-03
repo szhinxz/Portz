@@ -1,27 +1,12 @@
 export const image = [{
     id : 1,
-    path : "/images/p01.jpg"
+    path : "/images/coelum.png"
 },{
     id : 2,
-    path : "/images/p02.jpg"
+    path : "/images/systems.jpg"
 },{
     id : 3,
-    path : "/images/p03.jpg"
-},{
-    id : 4,
-    path : "/images/p04.jpg"
-},{
-    id : 5,
-    path : "/images/ps01.jpg"
-},{
-    id : 6,
-    path : "/images/ps02.jpg"
-},{
-    id : 7,
-    path : "/images/ps03.jpg"
-},{
-    id : 8,
-    path : "/images/ps04.jpg"
+    path : "/images/mobl.png"
 }];
 
 export const Image01 = [{

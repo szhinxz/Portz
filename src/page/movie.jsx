@@ -1,6 +1,6 @@
 import React,{ useState,Form,InputGroup } from "react";
 import {motion} from "framer-motion";
-import {work} from "../mywork"
+import {work,slc} from "../mywork"
 import { useEffect } from "react";
 import { FiX} from "react-icons/fi"; 
 import {BsSearch} from "react-icons/bs"
