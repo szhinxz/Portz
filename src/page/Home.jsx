@@ -11,10 +11,12 @@ import {motion} from "framer-motion"
 
 // About page //
 import Resume from "../assets/Resume_STP.pdf"
+import Transcript from "../assets/Transcript.pdf"
+import comp from "../assets/comp.pdf"
 
 
 import {VscGithub} from "react-icons/vsc"
-import {BsFileEarmarkPdfFill} from "react-icons/bs"
+import {BsFileEarmarkPdfFill,BsFillCalendar3RangeFill,BsFillJournalBookmarkFill} from "react-icons/bs"
 
 // work page //
 import {image} from "../image";
@@ -233,7 +235,7 @@ export default function Home(){
                 </p>
             </div>
             <h2>My name is</h2><h2 className="introstp">Sathaphon Khennamthieng</h2>
-            <h3></h3>
+            <h3>สถาพร เคนน้ำเที่ยง</h3>
         </section>
 
         <section className="hidden" id="time"> 
@@ -316,7 +318,7 @@ export default function Home(){
         <section className="hidden" id="exper"> 
             <h2>EXPERIENCE</h2>
             <div className="con-per">
-                <div className="carousel-l">
+                <div className="card-01">
                     <div className="imgs">
                             {image.map((e,index) =>{
                             return(
@@ -326,7 +328,7 @@ export default function Home(){
                             )}
                     </div>
                 </div>
-                <div className="card-r">
+                <div className="card-01">
                             <div className="imglink active" >
                                 <h2>
                                 Coelum
@@ -352,36 +354,14 @@ export default function Home(){
                                 </h3>
                             </div>
                 </div>
+            </div>
+            <div className="con-per">
+                <div className="card-02">
                 <div className="slider-navigation">
                     <div className="nav-btn active"></div>
                     <div className="nav-btn"></div>
                     <div className="nav-btn"></div>
                 </div>
-                <div className="imgss-mo">
-                    <div className="imglinks" >
-                                <h2>
-                                Coelum
-                                </h2>
-                                <h3>
-                                เว็บไซต์จัดงานศพ สามารถจองศาลาและรับจัดงานศพ พร้อมทั้งมีวัดเป็นพาร์ทเนอร์
-                                </h3>
-                            </div>
-                            <div className="imglinks" >
-                                <h2>
-                                System Project **รูปตัวอย่าง**
-                                </h2>
-                                <h3>
-                                เว็บไซต์ภายในบริษัท ส่งแบบฟอร์มและอนุมัติ ที่ติดตามและแจ้งเตือนผ่านทางอีเมลล์
-                                </h3>
-                            </div>
-                            <div className="imglinks" >
-                                <h2>
-                                Mobile App
-                                </h2>
-                                <h3>
-                                โปรเจคเริ่มต้นในชั้นเรียน โดยระบบ Andriod
-                                </h3>
-                            </div>
                 </div>
             </div>
         </section>
@@ -428,9 +408,21 @@ export default function Home(){
                         <div className="resume-card">
                             <div className="icon resume">
                                 <div className="tooltip-2">
+                                    Transcript
+                                </div>
+                                <a href={Transcript} download="Transcript"><span><BsFillCalendar3RangeFill /></span></a>
+                            </div>
+                            <div className="icon resume">
+                                <div className="tooltip-2">
                                     Resume
                                 </div>
                                 <a href={Resume} download="Resume"><span><BsFileEarmarkPdfFill /></span></a>
+                            </div>
+                            <div className="icon resume">
+                                <div className="tooltip-2">
+                                    Graduation
+                                </div>
+                                <a href={comp} download="comp"><span><BsFillJournalBookmarkFill /></span></a>
                             </div>
                         </div>
                         <br />

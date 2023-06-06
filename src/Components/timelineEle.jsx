@@ -12,7 +12,7 @@ export const timelineElement = [
     {
         id:2,
         title: "มหาวิทยาลัยศิลปากร",
-        location: "วิทยาเขต เพชรบุรี",
+        location: "เกรดเฉลี่ย: 2.91",
         description: "สาขาเทคโนโลยีสารสนเทศธุรกิจ",
         buttonText: "เยี่ยมชมเว็บไซต์",
         dataLink: "https://www.su.ac.th/th/index.php",
