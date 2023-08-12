@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import Movie from './movie';
 import Filter from './filter';
-import {work} from "../mywork"
 
 
 // Import Swiper styles
